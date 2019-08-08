@@ -2,6 +2,7 @@ import React from 'react';
 import MenuCard from '../MenuCard/MenuCard';
 import HeaderImage from './assets/image.png';
 import debounce from '../../utilities/utilityFunctions';
+import './CardContainer.css';
 
 export default class CardContainer extends React.Component {
   constructor() {
@@ -37,21 +38,27 @@ export default class CardContainer extends React.Component {
 
     return (
       <div className='App'>
-        <img src={HeaderImage} />
-        <h1>Noom Food Explorer</h1>
-        <form>
-          <label>
-            Enter the key word:
-            <input
-              type='text'
-              name='searchQuery'
-              onChange={this.handleChange}
-              onKeyDown={debounce(this.handleKeyDown, 200)}
-            />
-          </label>
-          <button type='submit'>Search</button>
-        </form>
-        {foods.length === 0 ? null : <MenuCard foods={foods} />}
+        <div className='header-container'>
+          <img src={HeaderImage} />
+          <div className='header-content'>
+            <h1>Noom Food Explorer</h1>
+            <form>
+              <div className='label'>
+                <label>Enter the key word:</label>
+              </div>
+              <input
+                type='text'
+                name='searchQuery'
+                onChange={this.handleChange}
+                onKeyDown={debounce(this.handleKeyDown, 200)}
+              />
+              <button className='search-btn' type='submit'>
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+        <ul>{foods.length === 0 ? null : <MenuCard foods={foods} />}</ul>
       </div>
     );
   }
