@@ -37,3 +37,9 @@ li {
 div > #column-right {
   margin-right: 50px;
 }
+
+div > #column-right:first-child {
+  font-size: 18px;
+  font-family: Helvetica;
+  font-weight: bold;
+}

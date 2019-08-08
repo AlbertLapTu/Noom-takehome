@@ -29,9 +29,7 @@ const FoodCards = props => {
           <div id='content'>
             <div>
               <span id='column-left'>Name:</span>
-              <span id='column-right' style={{ color: colorStyle }}>
-                {v.name}
-              </span>
+              <span style={{ color: colorStyle }}>{v.name}</span>
             </div>
             <div>
               <span id='column-left'>Brand:</span>
