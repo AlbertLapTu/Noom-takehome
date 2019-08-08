@@ -1,0 +1,39 @@
+.food-card {
+  border: 1px solid silver;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 530px;
+  height: 220px;
+  display: flex;
+}
+
+result {
+  color: #969696;
+  opacity: 100%;
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#content > div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#column-left {
+  float: left;
+  margin-left: 25px;
+}
+
+div > #column-right {
+  margin-right: 50px;
+}
