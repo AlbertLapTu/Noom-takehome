@@ -32,10 +32,10 @@ export default class CardContainer extends React.Component {
   };
 
   handleFetchPage = () => {
-    const { page, foods, currentPage, searchQuery } = this.state;
+    const { foods, currentPage, searchQuery } = this.state;
 
     fetch(
-      `https://uih0b7slze.execute-api.us-east-1.amazonaws.com/dev/search?kv=${searchQuery}$pg=${page}`
+      `https://uih0b7slze.execute-api.us-east-1.amazonaws.com/dev/search?kv=${searchQuery}&pg=${currentPage}`
     )
       .then(res => res.json())
       .then(data => {
@@ -47,16 +47,10 @@ export default class CardContainer extends React.Component {
   };
 
   handleScrollLocation = () => {
-    //TODO: Window height is at: 12494, scrollY when at end of page is 11673.
-    //Run the fetchPage function after scrollY goes past a certain threshold.
-
     const { maxWindowHeight } = this.state;
-    console.log(maxWindowHeight, 'window Height');
-    console.log(window.scrollY, 'scrollY');
+    let percentileRange = maxWindowHeight - maxWindowHeight * 0.1;
 
-    //Checks to see if we should fetch new data
-    if (window.scrollY === maxWindowHeight) {
-      //Fetch second page
+    if (window.scrollY >= percentileRange) {
       this.handleFetchPage();
     }
   };
