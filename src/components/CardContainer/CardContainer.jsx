@@ -19,6 +19,10 @@ export default class CardContainer extends React.Component {
     window.addEventListener('scroll', this.handleScrollLocation);
   };
 
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScrollLocation);
+  };
+
   getDocHeight = () => {
     var D = document;
     return Math.max(
